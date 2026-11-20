@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+  <title>ПЕРЕХВАТ — 12 интерактивных историй</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#10152b">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="/static/icons/icon-192.png">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body data-theme="color">
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-grid"></div>
+  <header class="topbar wrap">
+    <div class="brand">
+      <div class="brand-icon">⌁</div>
+      <div>
+        <div class="brand-name">ПЕРЕХВАТ</div>
+        <div class="brand-sub">12 интерактивных историй • 2 сезона</div>
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <button id="installButton" class="ghost-btn install-button" hidden>Установить ↗</button>
+      <button id="themeToggle" class="ghost-btn">Вернуться к стандартному дизайну</button>
+      <button id="soundToggle" class="ghost-btn">Звук <span id="soundState">OFF</span></button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero card card-hero">
+      <div class="hero-copy">
+        <span class="pill accent">НОВЫЙ СЕЗОН • 12 ЭПИЗОДОВ</span>
+        <h1>Триллеры, которые <span>захватывают с первой минуты</span>.</h1>
+        <p>Первая глава каждого эпизода — бесплатно. Дальше игрок сам решает: открыть одну историю за <b>99 ₽</b>, пакет из трёх за <b>259 ₽</b> или весь сезон из шести за <b>499 ₽</b>.</p>
+        <div class="hero-actions">
+          <a href="#catalog" class="primary-btn">Выбрать эпизод ↗</a>
+          <a href="/legal" class="ghost-btn">Правовая информация</a>
+        </div>
+      </div>
+      <div class="hero-side">
+        <div class="mini-stats">
+          <div class="mini-stat"><span>12</span><small>сюжетов</small></div>
+          <div class="mini-stat"><span>2</span><small>темы интерфейса</small></div>
+          <div class="mini-stat"><span>3</span><small>финала в новых историях</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing-row card">
+      <div><div class="small-label">Монетизация</div><b>Эпизод — 99 ₽</b></div>
+      <div><div class="small-label">Пакет A или B</div><b>3 истории — 259 ₽</b></div>
+      <div><div class="small-label">Полный сезон</div><b>6 историй сезона — 499 ₽</b></div>
+      <div><div class="small-label">Доступ</div><b>Первая глава бесплатно</b></div>
+    </section>
+
+    <section id="catalog" class="section-title-row">
+      <div>
+        <div class="small-label">КАТАЛОГ</div>
+        <h2>Эпизоды</h2>
+      </div>
+      <div class="small-note">Первая глава каждого эпизода запускается без оплаты</div>
+    </section>
+
+    <div class="catalog-toolbar">
+      <div class="segmented" role="tablist" aria-label="Выбор сезона">
+        <button id="seasonAll" class="segmented-btn active" data-season="0">Все истории</button>
+        <button id="season1" class="segmented-btn" data-season="1">Сезон 01</button>
+        <button id="season2" class="segmented-btn" data-season="2">Сезон 02</button>
+      </div>
+      <button id="storeOpen" class="primary-btn">🛍 Магазин историй</button>
+    </div>
+    <section id="episodesGrid" class="episodes-grid"></section>
+
+    <section class="section-title-row bundles-title">
+      <div>
+        <div class="small-label">ВЫГОДНЕЕ</div>
+        <h2>Пакеты доступа</h2>
+      </div>
+    </section>
+    <section id="bundleGrid" class="bundle-grid"></section>
+
+    <section class="mini-faq card">
+      <div class="small-label">КАК ИГРАТЬ</div>
+      <div class="faq-grid"><p><b>01</b><br>Выбери сюжет и бесплатно пройди первую главу.</p><p><b>02</b><br>Разгадывай шифры и принимай решения.</p><p><b>03</b><br>Открой продолжение и получи собственный финал.</p></div>
+    </section>
+    <section class="footer-note">В деморежиме для локального теста доступ можно открыть бесплатно. В боевом режиме вместо этого работает оплата через YooKassa.</section>
+  </main>
+
+  <div id="store" class="store-modal hidden" role="dialog" aria-modal="true" aria-label="Магазин историй">
+    <div class="store-scrim" id="storeScrim"></div>
+    <section class="store-panel">
+      <header class="store-header"><div><div class="small-label">ПЕРЕХВАТ MARKET</div><h2>Открой следующий сигнал</h2></div><button id="storeClose" class="close-btn" aria-label="Закрыть">×</button></header>
+      <div class="store-benefits"><span>✓ Первая глава бесплатно</span><span>✓ Повторное прохождение</span><span>✓ Разные развязки</span></div>
+      <div class="store-tabs segmented"><button class="segmented-btn active" data-store-tab="episodes">По эпизодам</button><button class="segmented-btn" data-store-tab="bundles">Пакеты</button><button class="segmented-btn" data-store-tab="seasons">Сезоны</button></div>
+      <div id="storeProducts" class="store-products"></div>
+      <p class="small-note">В локальной демоверсии открытие бесплатно. Денежные списания отключены.</p>
+    </section>
+  </div>
+
+  <div id="drawer" class="drawer hidden">
+    <div class="drawer-scrim" id="drawerScrim"></div>
+    <div class="drawer-panel">
+      <button id="drawerClose" class="close-btn" aria-label="Закрыть">×</button>
+      <div id="drawerContent"></div>
+    </div>
+  </div>
+
+  <div id="game" class="game hidden">
+    <div class="cinema-topline"><span class="red-dot"></span> ИНТЕРАКТИВНАЯ ПЕРЕДАЧА <span class="signal-dots">▂ ▅ ▃ ▇ ▄</span></div>
+    <div class="game-header">
+      <button id="gameClose" class="ghost-btn">← Каталог</button>
+      <div class="game-meta">
+        <div id="gameEpisodeTitle">Эпизод</div>
+        <div id="gameChapter">Глава</div>
+      </div>
+      <div class="game-right">
+        <div id="gameTag" class="game-tag">Сигнал</div>
+        <div id="gameSceneCount" class="small-note">00/00</div>
+      </div>
+    </div>
+    <div class="game-progress"><div id="gameBar"></div></div>
+    <div id="gameStage" class="game-stage"></div>
+    <div id="toast" class="toast"></div>
+  </div>
+
+  <script src="/static/audio-director.js?v=7.6"></script><script src="/static/app.js?v=7.6"></script>
+</body>
+</html>

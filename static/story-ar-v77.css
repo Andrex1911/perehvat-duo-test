@@ -1,0 +1,16 @@
+/* v7.7: obligatory cinematic AR is part of the chapter task screen, not a modal. */
+.story-ar-gate[hidden]{display:none!important}
+.story-ar-gate{position:relative;isolation:isolate;margin:0 0 18px;padding:clamp(10px,3vw,22px);border:1px solid #5acddd88;border-radius:17px;background:radial-gradient(ellipse at 60% -20%,#18445a,#0b1a2e 65%,#080f1e 100%);box-shadow:0 12px 45px #0006,inset 0 1px #a4feff20;overflow:visible;min-width:0}
+.story-ar-gate::before{content:'';pointer-events:none;position:absolute;inset:0;border-radius:17px;background:repeating-linear-gradient(0deg,transparent 0 27px,#8fd7ff04 28px);z-index:0}
+.story-ar-gate>*{position:relative}
+.story-ar-heading{margin:0 0 15px}.story-ar-label{font:700 10px/1.5 ui-monospace,monospace;letter-spacing:.16em;color:#76e7db}
+.story-ar-heading h3{font-size:clamp(23px,5vw,32px);line-height:1.1;margin:5px 0 7px;color:#fff;letter-spacing:.025em}
+.story-ar-heading p{line-height:1.5;font-size:14px;color:#c7dfef;max-width:620px;margin:0}
+.story-ar-solve,.story-ar-done,.story-ar-task-lock{border:1px solid #3d8ca2;background:#123044bf;border-radius:12px;padding:13px 15px;margin:12px 0;font-size:14px;line-height:1.5;color:#e3f9ff}
+.story-ar-done{border-color:#54b58c;background:#133b30}
+.story-ar-task-lock{border-color:#8d769c;background:#211e35;color:#e1d9ef;margin:0 0 16px}
+.story-ar-interactive{min-width:0}
+.story-ar-interactive .ar-mutual,.story-ar-interactive .relay-episode{width:100%;max-width:100%}
+.story-ar-gate .ar-mutual .ar-shell{box-shadow:0 8px 26px #0009}
+@media(max-width:500px){.story-ar-gate{padding:10px;border-radius:12px;margin-bottom:14px}.story-ar-heading h3{font-size:23px}.story-ar-heading p{font-size:12px;line-height:1.45}.story-ar-label{font-size:9px;letter-spacing:.09em}.story-ar-gate .relay-controls{position:relative;bottom:auto}.story-ar-gate .ar-mutual .ar-dock{position:relative;bottom:auto}.story-ar-gate .ar-mutual .ar-marker-image{max-height:min(28dvh,210px)}}
+@media(prefers-reduced-motion:reduce){.story-ar-gate::before{animation:none}}

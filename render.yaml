@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: perehvat-duo-test
+    runtime: docker
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: PAYMENT_MODE
+        value: demo
+      - key: PYTHONUNBUFFERED
+        value: "1"

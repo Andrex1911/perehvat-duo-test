@@ -1,0 +1,32 @@
+/* One bounded workspace. Only the playfield scrolls; result and actions stay visible. */
+#miniBox:not([hidden]){display:flex;flex-direction:column;overflow:hidden;padding:12px 18px;gap:6px}
+#miniBox>.section-kicker{display:none}
+#miniBox .minigame-head{flex:0 0 auto;margin:0;gap:8px}
+#miniBox #miniTitle{font-size:clamp(16px,2vw,23px);margin:0;line-height:1.2}
+#miniBox #miniGame{flex:1;min-height:0;display:flex;flex-direction:column;overflow:auto}
+.task-workspace{display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden;text-align:left;gap:8px}
+.task-scroll{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scroll-padding:12px;padding:3px 5px 10px;-webkit-overflow-scrolling:touch}
+.task-reference{border:1px solid #426482;border-radius:10px;background:#091c2d;margin:0 0 8px}
+.task-reference summary{cursor:pointer;padding:10px 12px;font-size:13px;color:#bdeafa;min-height:40px}
+.task-reference .mini-help,.task-reference .mini-intro{margin:8px;padding:10px}
+#miniBox .task-reference .task-cinematic{max-width:280px;margin:12px auto;box-shadow:none}
+#miniBox .unique-instrument,#miniBox .case-game{padding:0;border:0;background:none;box-shadow:none}
+#miniBox .instrument-controls,#miniBox .game-workbench{padding:10px;gap:8px}
+#miniBox .task-preview{flex:0 0 auto;min-height:60px;max-height:clamp(80px,19dvh,155px);margin:0;padding:8px;gap:8px;overflow:auto}
+#miniBox .task-preview svg{max-height:100px;width:auto;max-width:100%}
+#miniBox .task-preview .live-dial{transform:scale(.62);margin:-32px}
+#miniBox .task-preview .live-gauge{height:80px}
+#miniBox .task-preview .inspection-result,#miniBox .task-preview .revealed-ink{font-size:17px}
+.task-dock{flex:0 0 auto;background:#081728;border:1px solid #527da4;border-radius:12px;padding:8px 10px max(8px,env(safe-area-inset-bottom));box-shadow:0 -4px 15px #02081480;z-index:5}
+#miniBox .task-dock .task-order,#miniBox .task-dock .puzzle-status{margin:0;padding:4px 2px 8px;min-height:0;border:0;background:none;font-size:13px;line-height:1.35;max-height:16dvh;overflow:auto}
+#miniBox .task-dock .task-toolbar{position:static;margin:0;padding:0;border:0;box-shadow:none;background:none;gap:8px;flex-wrap:nowrap}
+#miniBox .task-dock button{flex:1;min-width:0;min-height:44px;padding:8px;font-size:12px;line-height:1.25;white-space:normal}
+.task-feedback{color:#ffd59c;font-size:13px;line-height:1.3;margin:0 0 5px}
+#miniBox .game-cell,#miniBox .task-option{min-height:44px}
+#miniBox .game-slider{gap:3px}#miniBox .game-slider output{font-size:18px}
+#miniBox .game-assignment{gap:4px}
+#miniBox .puzzle-grid{margin:8px auto;padding:8px;gap:6px;max-width:min(360px,55dvh)}
+#miniBox .fragment-board{max-width:340px;margin:auto}
+@media(min-width:1000px) and (min-height:650px){#miniBox .task-workspace{max-width:1000px;width:100%;margin:auto}#miniBox .instrument-controls{grid-template-columns:repeat(3,minmax(0,1fr))}#miniBox .instrument-controls.fragment-board{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){#miniBox:not([hidden]){padding:8px;gap:5px}#miniBox .player-chip{font-size:10px;padding:4px 6px}#miniBox .instrument-controls,#miniBox .game-workbench{padding:7px;gap:6px}.task-dock{padding:6px 8px max(6px,env(safe-area-inset-bottom))}}
+@media(max-height:500px){#miniBox .task-workspace{display:grid;grid-template-columns:minmax(0,1fr) minmax(180px,.65fr);grid-template-rows:minmax(0,1fr)}#miniBox .task-scroll{grid-column:1;grid-row:1}#miniBox .task-preview{display:none}#miniBox .task-workspace:has(.task-preview){grid-template-rows:minmax(0,1fr) auto}#miniBox .task-preview{grid-column:1;grid-row:2;display:flex;max-height:70px;min-height:0}#miniBox .task-dock{grid-column:2;grid-row:1 / -1;overflow:auto}#miniBox .task-dock .task-toolbar{flex-direction:column}#miniBox .task-dock .task-order{max-height:none}}

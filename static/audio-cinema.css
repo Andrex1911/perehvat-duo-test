@@ -1,0 +1,15 @@
+/* Original adaptive soundtrack controls — compact and accessible. */
+.audio-pill{border:1px solid #77d9e58c;background:#0c2630db;color:#a6f4ed;border-radius:11px;min-width:36px;min-height:36px;font-size:18px;font-weight:700;line-height:1;display:grid;place-items:center;flex:0 0 auto;padding:0;box-shadow:0 0 12px #3bd9bf1e}
+.audio-pill[aria-pressed="false"]{background:#24232c;color:#a8a8b4;border-color:#555;opacity:.75}
+.audio-pill:focus-visible,.audio-settings input:focus-visible{outline:2px solid #eabc78;outline-offset:4px}
+.audio-settings{padding:16px 18px;border:1px solid #3f536b;background:#0b1726;border-radius:15px;display:flex;flex-direction:column;gap:10px;grid-column:1 / -1}
+.audio-settings label{font-size:13px;display:flex;justify-content:space-between;align-items:center;gap:14px;color:#e2e7ec}
+.audio-settings output{font-variant-numeric:tabular-nums;color:#9debdc;font-weight:800}
+.audio-settings input[type=range]{width:100%;accent-color:#9debdc;min-height:28px;cursor:pointer}
+.audio-settings .audio-help{font-size:12px;color:#a2b6ca;line-height:1.55;margin:1px 0 0;max-width:65ch}
+.story-sound-cue{font:700 11px/1.5 'Segoe UI',sans-serif;letter-spacing:.15em;color:#8ee7e2;min-height:24px;text-align:center;padding:8px 0;border-top:1px solid #ffffff1c;margin:10px 0 3px;animation:scene-signal 2s ease-in-out infinite}
+.story-sound-cue[hidden]{display:none}
+.story-controls button:disabled{opacity:.4;cursor:progress;filter:saturate(.3)}
+@keyframes scene-signal{0%,100%{opacity:.65}50%{opacity:1}}
+@media(max-width:700px){.audio-pill{min-width:31px;min-height:31px;font-size:16px;border-radius:8px}.audio-settings{padding:12px}.room-toolbar .audio-pill{margin:0}}
+@media(prefers-reduced-motion:reduce){.story-sound-cue{animation:none}}
